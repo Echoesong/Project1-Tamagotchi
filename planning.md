@@ -26,3 +26,28 @@ Above will **affect state**
 - **GAMEOVER** = Needs are not fulfilled, Tama dies/gets sick. 
 - **VICTORY** = Needs are fulfilled for enough amount of time, Tama evolves
 
+
+
+
+
+# Daily plan: March 7
+
+1. Create boilerplate & link elements
+2. Display elements visually
+3. Begin working on default state & element cache
+    - **Default state needed:**
+        1. Var for Tama
+        2. Vars for the Tama's eventual meters
+            - Hunger
+            - Happiness
+            - Health
+        3. Victory state
+            - Null
+            - 1: Victory/evolution
+            - -1: Failure/Tama leaves (I CAN'T KILL IT!!!)
+    - **Elements to be cached:**
+        1. <h1> for title screen and maybe message display
+        2. <h2> for Tama display
+        3. <section class="buttons"> for player input
+            - Event listener to parent section (maybe not today)
+        
