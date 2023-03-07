@@ -2,15 +2,12 @@ console.log("Scripts read");
 
 // <-----Default global variables----->
 
-let tamagotchi;
-let meters = {
-  hunger: "hunger string",
-  happiness: "happiness string",
-  health: "health string",
-};
-let victory = {};
 
-// Put a string in tamagotchi and victory if you want to display them in console
+const tamagotchi = {}
+const meters = {}
+const victory = {}
+
+// Put a testStr in tamagotchi and victory if you want to display them in console
 // console.log(tamagotchi, meters, victory)
 
 // <-----Cached DOM elements----->
@@ -28,10 +25,15 @@ function init(){
 
     // Initial values set below:
 
+    // Not sure what I'll do with this, but I think in the future I'll want a Tamagotchi object, so initializing that below
+    tamagotchi.status = 1
+    // Below meters will be used to affect state of Tamagotchi
     meters.hunger = 5
     meters.happiness = 5
     meters.health = 5
-    console.log(meters)
+    // if value = 0 nullWin, -1 = failure, 1 = victory
+    victory.value = 0 
+    // console.log(meters)
 }
 
 init()
