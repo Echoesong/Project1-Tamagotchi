@@ -50,4 +50,6 @@ Above will **affect state**
         2. <h2> for Tama display
         3. <section class="buttons"> for player input
             - Event listener to parent section (maybe not today)
+
+**Update:** Finished these quickly, going to play around with styling
         
