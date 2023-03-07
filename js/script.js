@@ -25,6 +25,13 @@ console.log(titleEl, displayEl, buttonEls)
 
 function init(){
     console.log("Initializing...")
+
+    // Initial values set below:
+
+    meters.hunger = 5
+    meters.happiness = 5
+    meters.health = 5
+    console.log(meters)
 }
 
 init()
