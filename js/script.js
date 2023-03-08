@@ -62,6 +62,15 @@ function deductMeter(){
     
 }
 
+function increaseHappinessMeter(){
+    meters.happiness = meters.happiness + 1
+}
+
+function increaseHungerMeter(){
+    meters.hunger = meters.hunger + 1
+}
+
 init()
-deductMeter()
+increaseHappinessMeter()
+increaseHungerMeter()
 console.log(meters.hunger, meters.happiness)
