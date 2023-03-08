@@ -55,13 +55,23 @@ Above will **affect state**
 
 **Plan/pseudocode for next steps:**
 
-    1. Set some kind of state on the Tamagotchi to trigger a 'need'
-        -Possible route: Make it so after x amt of time elapses (10 sec?) a random roll on an array is triggered. Value on array affects meter values (makes them decrease)
-        -Above is a Function(), needs to be written. If(x time elapses){roll on array, deduct roll from meter value}
-    2. Based on state change from above Function() use meter values to affect Tamagotchi (i.e. increase meters again). when increaseValue() is called, increase meter values by X amount
-    3. Event listeners to affect data on the js side. Button will call increaseValue() function above
-    4. Render() function to affect DOM display
+1. Set some kind of state on the Tamagotchi to trigger a 'need'
+    - Possible route: Make it so after x amt of time elapses (10 sec?) a random roll on an array is triggered. Value on array affects meter values (makes them decrease)
+    - Above is a Function(), needs to be written. If(x time elapses){roll on array, deduct roll from meter value}
+2. Based on state change from above Function() use meter values to affect Tamagotchi (i.e. increase meters again). when increaseValue() is called, increase meter values by X amount
+3. Event listeners to affect data on the js side. Button will call increaseValue() function above
+4. Render() function to affect DOM display
 
 **completion of above is likely MVP, don't stretch yourself too far too fast**
+
+# Daily plan: March 8
+
+1. Tamagotchi need triggers
+    - Per above, when called function will roll on an array, and the value will be deducted from Hunger or Happiness
+        -To determine which meter is decreased, roll on another array with 2 values, one value corresponds to Hunger, the other to Happiness.
+2. Tamagotchi meter increase:
+    - When function is called, a value (static? random val from 1-2/1-3?), value will be added to Hunger or Happiness
+3. Tamagotchi health decrease:
+    - When called, health is decreased by 1
     
         

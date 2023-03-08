@@ -36,4 +36,32 @@ function init(){
     // console.log(meters)
 }
 
+function deductMeter(){
+    //Below I choose an index value randomly, and the index value = amount deducted from the meter
+    const deductionAmounts = [-1, -2, 1]
+    // Below generates a random number between 0 and max, which is passed as an argument when func is called
+    function getRandomInt(max){
+        return Math.floor(Math.random() * max)
+    }
+    const chosenIndex = getRandomInt(3)
+    const deductionValue = deductionAmounts[chosenIndex]
+    
+    //below, I am flipping a coin to decide if meters.hunger or meters.happiness should be affected
+    let coinFlip = Math.round(Math.random())
+    if(coinFlip == 0){
+        meters.hunger = meters.hunger + deductionValue
+        if(meters.hunger > 5){
+            meters.hunger = 5
+        }
+    } else{
+        meters.happiness = meters.happiness + deductionValue
+        if(meters.happiness > 5){
+            meters.happiness = 5
+        }
+    }
+    
+}
+
 init()
+deductMeter()
+console.log(meters.hunger, meters.happiness)
