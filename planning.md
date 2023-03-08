@@ -73,5 +73,16 @@ Above will **affect state**
     - When function is called, a value (static? random val from 1-2/1-3?), value will be added to Hunger or Happiness
 3. Tamagotchi health decrease:
     - When called, health is decreased by 1
+
+**Update:** Done with the functions! At this point I have a function that will decrease the meter.hunger and meter.happiness value, another that will decrease meter.health, and two separate functions that will increase meters.hunger or meter.happiness by 1
+
+**Next steps:** 
+
+1. Begin connecting event listeners with their callback functions
+    - 1 button to increaseHungerMeter, 1 button to increaseHappinessMeter
+2. Begin studying/working on asynch stuff for calling the deductMeter function
+    - Every 7 seconds, deductMeter() is called, which should decrease Happiness or Hunger by 1
+3. Add Happiness, Hunger, and Health visual representations on DOM
+3. Construct render function to update visuals
     
         

@@ -16,8 +16,13 @@ const titleEl = document.querySelector("h1");
 const displayEl = document.querySelector("h2");
 const buttonEls = document.querySelectorAll("div"); //If you are going to manipulate this, turn it into an array
 
-console.log(titleEl, displayEl, buttonEls)
+// console.log(titleEl, displayEl, buttonEls)
 
+
+// <-----Event listeners----->
+
+buttonEls[0].addEventListener('click', increaseHungerMeter)
+buttonEls[1].addEventListener('click', increaseHappinessMeter)
 // <-----Functions----->
 
 function init(){
@@ -59,18 +64,29 @@ function deductMeter(){
             meters.happiness = 5
         }
     }
+    // Have not tested the below conditional, unsure if it will trigger
+    if(meters.happiness == 0 || meters.hunger == 0){
+        decreaseHealth()
+    }
     
 }
 
-function increaseHappinessMeter(){
+function increaseHappinessMeter(evt){
     meters.happiness = meters.happiness + 1
+    console.log(meters.happiness)
+    // Should call render()
 }
 
-function increaseHungerMeter(){
+function increaseHungerMeter(evt){
     meters.hunger = meters.hunger + 1
+    console.log(meters.hunger)
+    // Should call render()
+}
+
+function decreaseHealth(){
+    meters.health = meters.health - 1
 }
 
 init()
-increaseHappinessMeter()
-increaseHungerMeter()
+
 console.log(meters.hunger, meters.happiness)
