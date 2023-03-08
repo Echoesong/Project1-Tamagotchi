@@ -79,10 +79,17 @@ Above will **affect state**
 **Next steps:** 
 
 1. Begin connecting event listeners with their callback functions
-    - 1 button to increaseHungerMeter, 1 button to increaseHappinessMeter
+    - 1 button to increaseHungerMeter, 1 button to increaseHappinessMeter **DONE**
 2. Begin studying/working on asynch stuff for calling the deductMeter function
+    -Studying: **done**
+    -Barebones: I can use recursive setTimeout to have the deductMeter function call itself infinitely. This will basically be the core loop of the game.
+    
     - Every 7 seconds, deductMeter() is called, which should decrease Happiness or Hunger by 1
 3. Add Happiness, Hunger, and Health visual representations on DOM
 3. Construct render function to update visuals
+
+**Notes TODO:**
+
+1. Make it so you can't click the button to keep incrementing the meters
     
         

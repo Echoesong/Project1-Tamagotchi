@@ -68,7 +68,8 @@ function deductMeter(){
     if(meters.happiness == 0 || meters.hunger == 0){
         decreaseHealth()
     }
-    
+    console.log(meters.hunger, meters.happiness)
+    setTimeout(deductMeter, 10000)
 }
 
 function increaseHappinessMeter(evt){
@@ -88,5 +89,5 @@ function decreaseHealth(){
 }
 
 init()
+deductMeter()
 
-console.log(meters.hunger, meters.happiness)
