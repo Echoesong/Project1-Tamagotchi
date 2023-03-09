@@ -25,6 +25,8 @@ buttonEls[0].addEventListener('click', increaseHungerMeter)
 buttonEls[1].addEventListener('click', increaseHappinessMeter)
 // <-----Functions----->
 
+// Icebox refactor: deductMeter should really just be a function called game()
+
 function init(){
     console.log("Initializing...")
 
@@ -73,7 +75,7 @@ function deductMeter(){
         } 
     }
     
-    // Have not tested the below conditional, unsure if it will trigger
+    
     if(meters.happiness == 0 || meters.hunger == 0){
         decreaseHealth()
     }
@@ -104,5 +106,5 @@ function decreaseHealth(){
 }
 
 init()
-deductMeter()
+// deductMeter()
 

@@ -96,9 +96,15 @@ Above will **affect state**
 
 1. Set up another HTML element to display Happiness/Health/Hunger meters
 2. Set up render function to update DOM elements
+    -Elements to be updated: <h3> with new meter values
+    -EVENTUALLY: <h2> with Tamagotchi emotes (i.e ^-^ v_v ;-; O.O UWU)
 3. Debug deductMeter function, it will dip into the negatives
 4. Set up victory and defeat displays
 
 After that, I think it's MVP?
+
+**Icebox goals**
+
+1. Update to "T1-agotchi" with Tyler1's phrases for victory defeat LMAO
     
         
