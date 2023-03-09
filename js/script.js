@@ -53,23 +53,37 @@ function deductMeter(){
     
     //below, I am flipping a coin to decide if meters.hunger or meters.happiness should be affected
     let coinFlip = Math.round(Math.random())
-    if(coinFlip == 0){
+    // Second part of conditional is meant to prevent the meter deduction from triggering if values are already at 0
+    if(coinFlip == 0 && meters.hunger > 0){
         meters.hunger = meters.hunger + deductionValue
+        // Below if statements are meant to prevent edge cases where meter values are higher than 5 or less than 0
         if(meters.hunger > 5){
             meters.hunger = 5
         }
-    } else{
+        if(meters.hunger < 0){
+            meters.hunger = 0
+        }
+    } else if (coinFlip == 1 && meters.happiness > 0){
         meters.happiness = meters.happiness + deductionValue
         if(meters.happiness > 5){
             meters.happiness = 5
         }
+        if(meters.happiness < 0){
+            meters.happiness = 0
+        } 
     }
+    
     // Have not tested the below conditional, unsure if it will trigger
     if(meters.happiness == 0 || meters.hunger == 0){
         decreaseHealth()
     }
-    console.log(meters.hunger, meters.happiness)
-    setTimeout(deductMeter, 10000)
+    console.log(meters.hunger, meters.happiness, meters.health)
+    if(meters.health !== 0){
+        setTimeout(deductMeter, 1000)
+    }
+    if(meters.happiness > 5 || meters.hunger > 5 || meters.happiness < 0 || meters.hunger < 0 || meters.health < 0){
+        console.log("Error in deductMeter function")
+    }
 }
 
 function increaseHappinessMeter(evt){

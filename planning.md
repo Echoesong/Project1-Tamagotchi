@@ -96,6 +96,8 @@ Above will **affect state**
 
 1. Set up another HTML element to display Happiness/Health/Hunger meters
 2. Set up render function to update DOM elements
+3. Debug deductMeter function, it will dip into the negatives
+4. Set up victory and defeat displays
 
 After that, I think it's MVP?
     
