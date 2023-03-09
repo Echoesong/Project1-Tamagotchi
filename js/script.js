@@ -83,7 +83,8 @@ function deductMeter(){
     }
     if(meters.happiness > 5 || meters.hunger > 5 || meters.happiness < 0 || meters.hunger < 0 || meters.health < 0){
         console.log("Error in deductMeter function")
-    }
+    } else if(meters.health == 0){
+        console.log("deductMeter recursion terminated")}
 }
 
 function increaseHappinessMeter(evt){
