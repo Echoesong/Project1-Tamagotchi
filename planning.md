@@ -103,6 +103,11 @@ Above will **affect state**
 
 After that, I think it's MVP?
 
+**Next steps (didn't write planning for today):**
+
+1. Write render function
+2. Code win/loss logic
+
 **Icebox goals**
 
 1. Update to "T1-agotchi" with Tyler1's phrases for victory defeat LMAO

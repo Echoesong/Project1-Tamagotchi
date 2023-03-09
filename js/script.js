@@ -5,7 +5,7 @@ console.log("Scripts read");
 
 const tamagotchi = {}
 const meters = {}
-const victory = {}
+let victory = null
 
 // Put a testStr in tamagotchi and victory if you want to display them in console
 // console.log(tamagotchi, meters, victory)
@@ -37,9 +37,9 @@ function init(){
     // Below meters will be used to affect state of Tamagotchi
     meters.hunger = 5
     meters.happiness = 5
-    meters.health = 5
+    meters.health = 3
     // if value = 0 nullWin, -1 = failure, 1 = victory
-    victory.value = 0 
+    victory = 0 
     // console.log(meters)
 }
 
@@ -74,13 +74,13 @@ function deductMeter(){
             meters.happiness = 0
         } 
     }
-    
-    
     if(meters.happiness == 0 || meters.hunger == 0){
         decreaseHealth()
     }
     console.log(meters.hunger, meters.happiness, meters.health)
-    if(meters.health !== 0){
+    // call endCounter function here, I think
+    endCounter()
+    if(meters.health !== 0 && victory < 4){
         setTimeout(deductMeter, 1000)
     }
     if(meters.happiness > 5 || meters.hunger > 5 || meters.happiness < 0 || meters.hunger < 0 || meters.health < 0){
@@ -105,6 +105,18 @@ function decreaseHealth(){
     meters.health = meters.health - 1
 }
 
+function endCounter(){
+    
+    if(meters.health <= 0){
+        console.log("Game Over")
+    }
+    if(meters.happiness > 4 && meters.hunger > 4){
+        victory = victory + 1
+        if(victory >= 3){
+            console.log("You win! Your Tamagotchi loves you")
+        }
+    }
+}
 init()
-// deductMeter()
+setTimeout(5000, deductMeter())
 
