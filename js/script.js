@@ -14,15 +14,19 @@ let victory = null
 
 const titleEl = document.querySelector("h1");
 const displayEl = document.querySelector("h2");
-const buttonEls = document.querySelectorAll("div"); //If you are going to manipulate this, turn it into an array
+const buttonEls = document.querySelectorAll("div.buttons"); //If you are going to manipulate this, turn it into an array
+const meterEls = document.querySelectorAll("div.meters")
+
+
+
 
 // console.log(titleEl, displayEl, buttonEls)
 
 
 // <-----Event listeners----->
 
-buttonEls[0].addEventListener('click', increaseHungerMeter)
-buttonEls[1].addEventListener('click', increaseHappinessMeter)
+// buttonEls[0].addEventListener('click', increaseHungerMeter)
+// buttonEls[1].addEventListener('click', increaseHappinessMeter)
 // <-----Functions----->
 
 // Icebox refactor: deductMeter should really just be a function called game()
@@ -80,6 +84,7 @@ function deductMeter(){
     console.log(meters.hunger, meters.happiness, meters.health)
     // call endCounter function here, I think
     endCounter()
+    render()
     if(meters.health !== 0 && victory < 4){
         setTimeout(deductMeter, 1000)
     }
@@ -116,6 +121,12 @@ function endCounter(){
             console.log("You win! Your Tamagotchi loves you")
         }
     }
+}
+
+function render(){
+    meterEls[0].innerHTML = `Happiness: ${meters.happiness}/5`
+    meterEls[1].innerHTML = `Hunger: ${meters.hunger}/5`
+    meterEls[2].innerHTML = `Health: ${meters.health}/5`
 }
 init()
 setTimeout(5000, deductMeter())
