@@ -48,6 +48,7 @@ function init(){
     meters.health = 3
     // if value = 0 nullWin, -1 = failure, 1 = victory
     victory = 0 
+    
     render()
     // console.log(meters)
 }
@@ -74,6 +75,8 @@ function deductMeter(){
         if(meters.hunger < 0){
             meters.hunger = 0
         }
+        tamagotchi.message = `I wanna eat!`
+        render()
     } else if (coinFlip == 1 && meters.happiness > 0){
         meters.happiness = meters.happiness + deductionValue
         if(meters.happiness > 5){
@@ -82,16 +85,18 @@ function deductMeter(){
         if(meters.happiness < 0){
             meters.happiness = 0
         } 
+        tamagotchi.message = `Will you play with me?`
+        render()
     }
     if(meters.happiness == 0 || meters.hunger == 0){
         decreaseHealth()
     }
-    console.log(meters.hunger, meters.happiness, meters.health)
+    // console.log(meters.hunger, meters.happiness, meters.health)
     // call endCounter function here, I think
     endCounter()
     render()
     if(meters.health !== 0 && victory != 3){
-        setTimeout(deductMeter, 1000)
+        setTimeout(deductMeter, 7000)
     }
     if(meters.happiness > 5 || meters.hunger > 5 || meters.happiness < 0 || meters.hunger < 0 || meters.health < 0){
         console.log("Error in deductMeter function")
@@ -105,6 +110,8 @@ function increaseHappinessMeter(evt){
         tamagotchi.message = "Your Tamagotchi doesn't want to play any more!"
         renderMessage()
         meters.happiness = 5
+    } else{
+        tamagotchi.message = "Yay! That was fun"
     }
     // console.log(meters.happiness)
     render()
@@ -116,26 +123,30 @@ function increaseHungerMeter(evt){
         tamagotchi.message = 'Your Tamagotchi is too full!'
         renderMessage()
         meters.hunger = 5
+    } else{
+        tamagotchi.message = "Yum! That was tasty"
     }
-    console.log(meters.hunger)
+    // console.log(meters.hunger)
     render()
 }
 
 function decreaseHealth(){
     meters.health = meters.health - 1
-    
+    tamagotchi.message = `${tamagotchi.name} doesn't feel so good...`
     render()
 }
 
 function endCounter(){
     
     if(meters.health <= 0){
-        console.log("Game Over")
+        tamagotchi.message = "Game over"
+        render()
     }
     if(meters.happiness > 4 && meters.hunger > 4){
         victory = victory + 1
         if(victory >= 3){
-            console.log("You win! Your Tamagotchi loves you")
+            tamagotchi.message = `You win! ${tamagotchi.name} loves you!`
+            render()
         }
     }
 }
@@ -143,17 +154,23 @@ function endCounter(){
 function render(){
     renderMeters()
     renderMessage()
+    renderExpression(' \^-^/')
 }
 
 function renderMeters(){
     meterEls[0].innerHTML = `Happiness: ${meters.happiness}/5`
     meterEls[1].innerHTML = `Hunger: ${meters.hunger}/5`
-    meterEls[2].innerHTML = `Health: ${meters.health}/5`
+    meterEls[2].innerHTML = `Health: ${meters.health}/3`
 }
 
 function renderMessage(){
     consoleEl.innerHTML = `${tamagotchi.message}`
 }
+function renderExpression(expression){
+    displayEl.innerHTML = `${expression}`
+}
 init()
+
 // setTimeout(5000, deductMeter())
+
 
