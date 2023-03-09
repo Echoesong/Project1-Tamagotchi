@@ -16,6 +16,9 @@ const titleEl = document.querySelector("h1");
 const displayEl = document.querySelector("h2");
 const buttonEls = document.querySelectorAll("div.buttons"); //If you are going to manipulate this, turn it into an array
 const meterEls = document.querySelectorAll("div.meters")
+const consoleEl = document.querySelector("#console")
+
+
 
 
 
@@ -25,8 +28,8 @@ const meterEls = document.querySelectorAll("div.meters")
 
 // <-----Event listeners----->
 
-// buttonEls[0].addEventListener('click', increaseHungerMeter)
-// buttonEls[1].addEventListener('click', increaseHappinessMeter)
+buttonEls[0].addEventListener('click', increaseHappinessMeter)
+buttonEls[1].addEventListener('click', increaseHungerMeter)
 // <-----Functions----->
 
 // Icebox refactor: deductMeter should really just be a function called game()
@@ -37,13 +40,15 @@ function init(){
     // Initial values set below:
 
     // Not sure what I'll do with this, but I think in the future I'll want a Tamagotchi object, so initializing that below
-    tamagotchi.status = 1
+    tamagotchi.name = `Pixel`
+    tamagotchi.message = `Hello! I'm ${tamagotchi.name}`
     // Below meters will be used to affect state of Tamagotchi
     meters.hunger = 5
     meters.happiness = 5
     meters.health = 3
     // if value = 0 nullWin, -1 = failure, 1 = victory
     victory = 0 
+    render()
     // console.log(meters)
 }
 
@@ -85,7 +90,7 @@ function deductMeter(){
     // call endCounter function here, I think
     endCounter()
     render()
-    if(meters.health !== 0 && victory < 4){
+    if(meters.health !== 0 && victory != 3){
         setTimeout(deductMeter, 1000)
     }
     if(meters.happiness > 5 || meters.hunger > 5 || meters.happiness < 0 || meters.hunger < 0 || meters.health < 0){
@@ -96,18 +101,30 @@ function deductMeter(){
 
 function increaseHappinessMeter(evt){
     meters.happiness = meters.happiness + 1
-    console.log(meters.happiness)
-    // Should call render()
+    if(meters.happiness > 5){
+        tamagotchi.message = "Your Tamagotchi doesn't want to play any more!"
+        renderMessage()
+        meters.happiness = 5
+    }
+    // console.log(meters.happiness)
+    render()
 }
 
 function increaseHungerMeter(evt){
     meters.hunger = meters.hunger + 1
+    if(meters.hunger > 5){
+        tamagotchi.message = 'Your Tamagotchi is too full!'
+        renderMessage()
+        meters.hunger = 5
+    }
     console.log(meters.hunger)
-    // Should call render()
+    render()
 }
 
 function decreaseHealth(){
     meters.health = meters.health - 1
+    
+    render()
 }
 
 function endCounter(){
@@ -124,10 +141,19 @@ function endCounter(){
 }
 
 function render(){
+    renderMeters()
+    renderMessage()
+}
+
+function renderMeters(){
     meterEls[0].innerHTML = `Happiness: ${meters.happiness}/5`
     meterEls[1].innerHTML = `Hunger: ${meters.hunger}/5`
     meterEls[2].innerHTML = `Health: ${meters.health}/5`
 }
+
+function renderMessage(){
+    consoleEl.innerHTML = `${tamagotchi.message}`
+}
 init()
-setTimeout(5000, deductMeter())
+// setTimeout(5000, deductMeter())
 
