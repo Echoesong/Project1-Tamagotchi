@@ -108,8 +108,28 @@ After that, I think it's MVP?
 1. Write render function
 2. Code win/loss logic
 
+**Tomorrow:**
+
+Bug hunting:
+
+1. Default expression doesn't show, starts right in the gameplay loop
+2. Expressions sometimes don't show properly, determine which ones and why
+
+**3/10 planning:**
+
+1. Bug hunt the start screen not showing
+2. Create start/restart button
+3. Create display to show 'love meter'
+
 **Icebox goals**
 
 1. Update to "T1-agotchi" with Tyler1's phrases for victory defeat LMAO
+
+
+
+**options:**
+
+- Use emojis in place of emoticons
+- 
     
         
