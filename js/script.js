@@ -17,6 +17,7 @@ const displayEl = document.querySelector("h2");
 const buttonEls = document.querySelectorAll("div.buttons"); //If you are going to manipulate this, turn it into an array
 const meterEls = document.querySelectorAll("div.meters")
 const consoleEl = document.querySelector("#console")
+const resetEl = document.querySelector('button')
 
 
 
@@ -30,6 +31,7 @@ const consoleEl = document.querySelector("#console")
 
 buttonEls[0].addEventListener('click', increaseHappinessMeter)
 buttonEls[1].addEventListener('click', increaseHungerMeter)
+resetEl.addEventListener('click', init)
 // <-----Functions----->
 
 // Icebox refactor: deductMeter should really just be a function called game()
@@ -49,7 +51,7 @@ function init(){
     meters.health = 3
     
     render()
-    
+    setTimeout(deductMeter, 7000)
     // console.log(meters)
 }
 
@@ -182,7 +184,7 @@ function renderExpression(){
     displayEl.innerHTML = `${tamagotchi.expression}`
 }
 init()
-setTimeout(deductMeter, 7000)
+
 
 
 
