@@ -34,7 +34,7 @@ buttonEls[1].addEventListener('click', increaseHungerMeter)
 resetEl.addEventListener('click', init)
 // <-----Functions----->
 
-// Icebox refactor: deductMeter should really just be a function called game()
+// Icebox refactor: game should really just be a function called game()
 
 function init(){
     console.log("Initializing...")
@@ -52,11 +52,11 @@ function init(){
     meters.love = 0
     
     render()
-    setTimeout(deductMeter, 7000)
+    setTimeout(game, 7000)
     // console.log(meters)
 }
 
-function deductMeter(){
+function game(){
     //Below I choose an index value randomly, and the index value = amount deducted from the meter
     const deductionAmounts = [-1, -2, -1, -1]
     // Below generates a random number between 0 and max, which is passed as an argument when func is called
@@ -103,12 +103,12 @@ function deductMeter(){
     endCounter()
     render()
     if(meters.health !== 0 && victory != 3){
-        setTimeout(deductMeter, 7000)
+        setTimeout(game, 7000)
     }
     if(meters.happiness > 5 || meters.hunger > 5 || meters.happiness < 0 || meters.hunger < 0 || meters.health < 0){
-        console.log("Error in deductMeter function")
+        console.log("Error in game function")
     } else if(meters.health == 0){
-        console.log("deductMeter recursion terminated")}
+        console.log("game recursion terminated")}
 }
 
 function increaseHappinessMeter(evt){
