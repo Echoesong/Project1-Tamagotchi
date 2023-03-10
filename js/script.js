@@ -37,7 +37,7 @@ resetEl.addEventListener('click', init)
 // Icebox refactor: game should really just be a function called game()
 
 function init(){
-    console.log("Initializing...")
+    console.log("Initializing")
 
     // Initial values set below:
 
