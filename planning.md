@@ -118,8 +118,10 @@ Bug hunting:
 **3/10 planning:**
 
 1. Bug hunt the start screen not showing **BUG SQUASHED**
-2. Create start/restart button
-3. Create display to show 'love meter'
+2. Create start/restart button **Done**
+3. Create display to show 'love meter' **DONE**
+
+# MVP ACHIEVED!!!
 
 **Icebox goals**
 
