@@ -6,6 +6,7 @@ console.log("Scripts read");
 const tamagotchi = {}
 const meters = {}
 let victory = null
+let title = "Say hi to your Tamagotchi!"
 
 // Put a testStr in tamagotchi and victory if you want to display them in console
 // console.log(tamagotchi, meters, victory)
@@ -57,6 +58,7 @@ function init(){
 }
 
 function game(){
+    title = "Care for them as best you can"
     //Below I choose an index value randomly, and the index value = amount deducted from the meter
     const deductionAmounts = [-1, -2, -1, -1]
     // Below generates a random number between 0 and max, which is passed as an argument when func is called
@@ -152,6 +154,7 @@ function endCounter(){
     
     if(meters.health <= 0){
         tamagotchi.message = "Game over"
+        title = "Try to do better next time"
         tamagotchi.expression = `x_x`
         render()
     }
@@ -160,6 +163,7 @@ function endCounter(){
         console.log(meters.love)
         if(meters.love >= 3){
             tamagotchi.message = `You win! ${tamagotchi.name} loves you!`
+            title = "Great job!"
             tamagotchi.expression = `<3 \\^-^/ <3`
             render()
         }
@@ -170,6 +174,7 @@ function render(){
     console.log('rendering')
     renderMeters()
     renderMessage()
+    renderTitle()
     renderExpression()
 }
 
@@ -186,6 +191,10 @@ function renderMessage(){
 function renderExpression(){
     
     displayEl.innerHTML = `${tamagotchi.expression}`
+}
+
+function renderTitle(){
+    titleEl.querySelector.innerHTML = `${title}`
 }
 init()
 
