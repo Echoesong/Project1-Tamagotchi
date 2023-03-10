@@ -52,7 +52,7 @@ function init(){
     meters.love = 0
     
     render()
-    setTimeout(game, 7000)
+    // setTimeout(game, 7000)
     // console.log(meters)
 }
 
