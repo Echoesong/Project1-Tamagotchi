@@ -104,12 +104,13 @@ function game(){
     // call endCounter function here, I think
     endCounter()
     render()
-    if(meters.health !== 0 && victory != 3){
+    if(meters.health !== 0 && meters.love < 3){
         setTimeout(game, 7000)
     }
-    if(meters.happiness > 5 || meters.hunger > 5 || meters.happiness < 0 || meters.hunger < 0 || meters.health < 0){
-        console.log("Error in game function")
-    } else if(meters.health == 0){
+    // if(meters.happiness > 5 || meters.hunger > 5 || meters.happiness < 0 || meters.hunger < 0 || meters.health < 0 || meters.love > 4){
+    //     console.log("Error in game function")
+    // } else 
+    if(meters.health == 0 || meters.love == 3){
         console.log("game recursion terminated")}
 }
 
@@ -194,7 +195,7 @@ function renderExpression(){
 }
 
 function renderTitle(){
-    titleEl.querySelector.innerHTML = `${title}`
+    titleEl.innerHTML = `${title}`
 }
 init()
 
