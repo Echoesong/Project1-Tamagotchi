@@ -8,34 +8,22 @@ const meters = {}
 let victory = null
 let title = "Say hi to your Tamagotchi!"
 
-// Put a testStr in tamagotchi and victory if you want to display them in console
-// console.log(tamagotchi, meters, victory)
-
 // <-----Cached DOM elements----->
 
 const titleEl = document.querySelector("h1");
 const displayEl = document.querySelector("h2");
-const buttonEls = document.querySelectorAll("div.buttons"); //If you are going to manipulate this, turn it into an array
+const buttonEls = document.querySelectorAll("div.buttons"); 
 const meterEls = document.querySelectorAll("div.meters")
 const consoleEl = document.querySelector("#console")
 const resetEl = document.querySelector('button')
-
-
-
-
-
-
-// console.log(titleEl, displayEl, buttonEls)
-
 
 // <-----Event listeners----->
 
 buttonEls[0].addEventListener('click', increaseHappinessMeter)
 buttonEls[1].addEventListener('click', increaseHungerMeter)
 resetEl.addEventListener('click', init)
-// <-----Functions----->
 
-// Icebox refactor: game should really just be a function called game()
+// <-----Functions----->
 
 function init(){
     console.log("Initializing")
