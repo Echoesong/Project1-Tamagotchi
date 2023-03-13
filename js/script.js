@@ -5,7 +5,6 @@ console.log("Scripts read");
 
 const tamagotchi = {}
 const meters = {}
-let victory = null
 let title = "Say hi to your Tamagotchi!"
 
 // <-----Cached DOM elements----->
@@ -27,10 +26,7 @@ resetEl.addEventListener('click', init)
 
 function init(){
     console.log("Initializing")
-
     // Initial values set below:
-
-    
     tamagotchi.name = `Pixel`
     tamagotchi.message = `Hello! I'm ${tamagotchi.name}`
     tamagotchi.expression = `\\^-^/`
@@ -42,7 +38,7 @@ function init(){
     
     render()
     setTimeout(game, 7000)
-    // console.log(meters)
+    
 }
 
 function game(){
@@ -55,7 +51,6 @@ function game(){
     }
     const chosenIndex = getRandomInt(4)
     const deductionValue = deductionAmounts[chosenIndex]
-    
     //below, I am flipping a coin to decide if meters.hunger or meters.happiness should be affected
     let coinFlip = Math.round(Math.random())
     // Second part of conditional is meant to prevent the meter deduction from triggering if values are already at 0
@@ -71,7 +66,7 @@ function game(){
         }
         tamagotchi.message = `Can I have some food?`
         tamagotchi.expression = `0w0`
-        
+
     } else if (coinFlip == 1 && meters.happiness > 0){
         meters.happiness = meters.happiness + deductionValue
         console.log(`happiness deducted. happiness value: ${meters.happiness}`)
@@ -88,16 +83,17 @@ function game(){
     if(meters.happiness == 0 || meters.hunger == 0){
         decreaseHealth()
     }
-    // console.log(meters.hunger, meters.happiness, meters.health)
-    // call endCounter function here, I think
+    
     endCounter()
     render()
     if(meters.health !== 0 && meters.love < 3){
         setTimeout(game, 7000)
     }
-    // if(meters.happiness > 5 || meters.hunger > 5 || meters.happiness < 0 || meters.hunger < 0 || meters.health < 0 || meters.love > 4){
-    //     console.log("Error in game function")
-    // } else 
+
+    // Below are logs for game state, one for what I dub errors the other for if the main game loop terminates properly.
+    if(meters.happiness > 5 || meters.hunger > 5 || meters.happiness < 0 || meters.hunger < 0 || meters.health < 0 || meters.love > 4){
+        console.log("Error in game function")
+    }
     if(meters.health == 0 || meters.love == 3){
         console.log("game recursion terminated")}
 }
@@ -106,7 +102,6 @@ function increaseHappinessMeter(evt){
     meters.happiness = meters.happiness + 1
     if(meters.happiness > 5){
         tamagotchi.message = "Your Tamagotchi doesn't want to play any more!"
-        
         tamagotchi.expression = `*-_-`
         meters.happiness = 5
     } else{
@@ -114,7 +109,7 @@ function increaseHappinessMeter(evt){
         tamagotchi.expression = `\\^-^7`
 
     }
-    // console.log(meters.happiness)
+    
     render()
 }
 
@@ -128,7 +123,7 @@ function increaseHungerMeter(evt){
         tamagotchi.message = "Yum! That was tasty"
         tamagotchi.expression = `^0^`
     }
-    // console.log(meters.hunger)
+    
     render()
 }
 
